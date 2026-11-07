@@ -11,3 +11,15 @@ export async function getAllBreeds() {
 
     return data.message;
 }
+
+export async function getBreedImages(breedName) {
+    const response = await fetch(`${API_URL}/breed/${breedName}/images`);
+
+    if (!response.ok) {
+        throw new Error('Koirarodun kuvien hakeminen epäonnistui.');
+    }
+
+    const data = await response.json();
+
+    return data.message;
+}

@@ -7,9 +7,11 @@ import Favorites from './pages/Favorites';
 import Compare from './pages/Compare';
 
 import Navbar from './components/Navbar';
+import {FavoritesProvider} from "./context/FavoritesContext.jsx";
 
 function App() {
     return (
+        <FavoritesProvider>
         <BrowserRouter>
             <Navbar />
 
@@ -23,6 +25,8 @@ function App() {
                 </Routes>
             </main>
         </BrowserRouter>
+        </FavoritesProvider>
+
     );
 }
 
