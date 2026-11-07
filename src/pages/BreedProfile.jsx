@@ -45,7 +45,7 @@ function BreedProfile(){
             <h1>{breedName.charAt(0).toUpperCase() + breedName.slice(1)}</h1>
             <p>Tutustu tähän koirarotuun ja sen kuviin.</p>
             <button
-                className="btn btn-primary mb-3"
+                className="btn favorite-button mb-3"
                 onClick={toggleFavorite}
             >
                 {isFavorite ? 'Poista suosikeista' : 'Lisää suosikkeihin'}

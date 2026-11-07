@@ -1,31 +1,82 @@
+
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getRandomBreedImage } from '../services/dogImageApi.js';
 
 function Home() {
+    const [dogImage, setDogImage] = useState('');
+
+    useEffect(() => {
+        async function fetchDogImage() {
+            try {
+                const image = await getRandomBreedImage('retriever/golden');
+                setDogImage(image);
+            } catch (error) {
+                console.error('Koirakuvan hakeminen epäonnistui:', error);
+            }
+        }
+
+        fetchDogImage();
+    }, []);
+
     return (
-        <div>
-            <h1>Etusivu</h1>
-            <p>Tervetuloa Dog Worldiin!</p>
+        <main className="home-container">
+            <section className="home-hero">
+                <div className="home-intro">
+                    <p className="home-subtitle">TERVETULOA KOIRIEN MAAILMAAN</p>
+                    <h1>Welcome to Dog World</h1>
+                    <p>
+                        Tutustu erilaisiin koirarotuihin, löydä omat suosikkisi
+                        ja vertaile koirien ominaisuuksia.
+                    </p>
 
-            <h2>Tutustu sovelluksen toimintoihin</h2>
+                    <Link to="/breeds" className="home-button">
+                        Tutustu koirarotuihin
+                    </Link>
+                </div>
 
-            <div>
-                <h3>Koirarodut</h3>
-                <p>Selaa koirarotuja ja tutustu niiden kuviin.</p>
-                <Link to="/breeds">Tutustu koirarotuihin</Link>
-            </div>
+                {dogImage && (
+                    <img
+                        src={dogImage}
+                        alt="Kultainennoutaja"
+                        className="home-dog-image"
+                    />
+                )}
+            </section>
 
-            <div>
-                <h3>Omat suosikit</h3>
-                <p>Tarkastele tallentamiasi koirarotuja.</p>
-                <Link to="/favorites">Omat suosikit</Link>
-            </div>
+            <section className="home-features">
+                <h2>Tutustu Dog Worldin toimintoihin</h2>
 
-            <div>
-                <h3>Rotujen vertailu</h3>
-                <p>Vertaile kahden koirarodun ominaisuuksia.</p>
-                <Link to="/compare">Vertaile rotuja</Link>
-            </div>
-        </div>
+                <div className="home-card-container">
+                    <div className="home-card">
+                        <h3>Koirarodut</h3>
+                        <p>
+                            Selaa erilaisia koirarotuja ja tutustu niiden
+                            kuviin ja ominaisuuksiin.
+                        </p>
+                        <Link to="/breeds">Selaa rotuja →</Link>
+                    </div>
+
+                    <div className="home-card">
+                        <h3>Omat suosikit</h3>
+                        <p>
+                            Tallenna kiinnostavimmat koirarodut ja löydä
+                            ne helposti uudelleen.
+                        </p>
+                        <Link to="/favorites">Katso suosikit →</Link>
+                    </div>
+
+                    <div className="home-card">
+                        <h3>Rotujen vertailu</h3>
+                        <p>
+                            Vertaile kahden koirarodun kokoa ja muita
+                            ominaisuuksia.
+                        </p>
+                        <Link to="/compare">Vertaile rotuja →</Link>
+                    </div>
+                </div>
+            </section>
+        </main>
     );
 }
 

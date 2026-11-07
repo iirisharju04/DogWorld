@@ -174,12 +174,12 @@ function Breeds() {
                         className="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3"
                         key={breed.slug}
                     >
-                        <div className="card h-100">
+                        <div className="card h-100 breed card">
 
                             {images[breed.slug] ? (
                                 <img
                                     src={images[breed.slug]}
-                                    className="card-img-top"
+                                    className="card-img-top breed-card-image"
                                     alt={getFinnishBreedName(breed.name)}
                                     style={{
                                         height: '220px',
@@ -204,7 +204,7 @@ function Breeds() {
 
                                 <Link
                                     to={`/breed/${encodeURIComponent(breed.slug)}`}
-                                    className="btn btn-dark mt-auto"
+                                    className="btn breed-button mt-auto"
                                 >
                                     Tutustu rotuun
                                 </Link>

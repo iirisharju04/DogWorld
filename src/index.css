@@ -87,3 +87,184 @@ p {
   color: #8b6248;
   font-weight: 700;
 }
+
+
+/* Etusivu */
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 55px;
+  background-color: #eee5da;
+  border-radius: 20px;
+}
+
+.home-intro {
+  flex: 1;
+}
+
+.home-subtitle {
+  color: #8b6248;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.home-intro h1 {
+  font-size: 42px;
+  margin: 0 0 20px;
+}
+
+.home-intro p {
+  max-width: 480px;
+  margin-bottom: 25px;
+}
+
+.home-button {
+  display: inline-block;
+  background-color: #79563f;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.home-button:hover {
+  background-color: #60432f;
+  color: white;
+}
+
+.home-dog-image {
+  width: 42%;
+  max-height: 330px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.home-features {
+  margin-top: 55px;
+}
+
+.home-features h2 {
+  margin-bottom: 25px;
+}
+
+.home-card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.home-card {
+  background-color: #fffdf9;
+  border: 1px solid #e5dbcf;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.home-card h3 {
+  margin-bottom: 15px;
+}
+
+.home-card p {
+  margin-bottom: 20px;
+}
+
+.home-card a {
+  color: #8b6248;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    flex-direction: column;
+    padding: 30px 22px;
+  }
+
+  .home-intro h1 {
+    font-size: 32px;
+  }
+
+  .home-dog-image {
+    width: 100%;
+  }
+
+  .home-card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.breed-card {
+  background-color: #fffdf9;
+  border: 1px solid #e5dbcf;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(70, 50, 35, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.breed-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 18px rgba(70, 50, 35, 0.13);
+}
+
+.breed-card-image {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.breed-card .card-body {
+  padding: 18px;
+}
+
+.breed-card .card-title {
+  color: #49372b;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.breed-button {
+  background-color: #e8d8c7 !important;
+  color: #49372b !important;
+  border: #c9ad94 !important;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-weight: 600;
+}
+
+.breed-button:hover {
+  background-color: #d8c1aa !important;
+  color: #35271f !important;
+  border-color: #b99a7e !important;
+}
+
+.favorite-button {
+  background-color: #e8d8c7 !important;
+  color: #49372b !important;
+  border: 2px solid #c9ad94 !important;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 18px;
+}
+
+.favorite-button:hover {
+  background-color: #d8c1aa !important;
+  color: #35271f !important;
+  border-color: #b99a7e !important;
+}
