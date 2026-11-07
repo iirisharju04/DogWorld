@@ -10,6 +10,7 @@ function BreedProfile(){
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const isFavorite = favorites.includes(breedName);
 
    //Kuvien hakeminen Apista:
     useEffect(() => {
@@ -29,8 +30,10 @@ function BreedProfile(){
     }, [breedName]);
 
     // Suosikkeihin lisääminen:
-    function addToFavorites() {
-        if (!favorites.includes(breedName)) {
+    function toggleFavorite() {
+        if (isFavorite) {
+            setFavorites(favorites.filter(favorite => favorite !== breedName));
+        } else {
             setFavorites([...favorites, breedName]);
         }
     }
@@ -43,9 +46,9 @@ function BreedProfile(){
             <p>Tutustu tähän koirarotuun ja sen kuviin.</p>
             <button
                 className="btn btn-primary mb-3"
-                onClick={addToFavorites}
+                onClick={toggleFavorite}
             >
-                Lisää suosikkeihin
+                {isFavorite ? 'Poista suosikeista' : 'Lisää suosikkeihin'}
             </button>
             {loading && <p>Haetaan kuvia...</p>}
 
