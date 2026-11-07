@@ -23,3 +23,17 @@ export async function getBreedImages(breedName) {
 
     return data.message;
 }
+
+export async function getBreedDetails() {
+    const response = await fetch(
+        'https://dogapi.dog/api/v2/breeds'
+    );
+
+    if (!response.ok) {
+        throw new Error('Rotutietojen hakeminen epäonnistui.');
+    }
+
+    const data = await response.json();
+
+    return data.data;
+}
